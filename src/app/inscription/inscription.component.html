@@ -1,1 +1,247 @@
-<p>inscription works!</p>
+<div style="padding-right:15px;" class="container-fluid">
+<div class="card">
+  <!-- form header -->
+  <div class="row">
+    <div class="col">
+      <h1>S'inscrire</h1>
+      <hr>
+    </div>
+  </div>
+
+  <!-- main form -->
+  <div class="row">
+    <form action="" style="width:100%;" #myForm="ngForm">
+      <div class="col">
+
+        <!-- personal info -->
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="fnText"><b>CNE</b></label>
+              <input type="text" ngModel name="cne"
+                     #cne="ngModel"
+                     [ngClass]="{'form-control': true,
+              'is-invalid': !cne?.valid && cne?.touched,
+              'is-valid': cne?.valid && cne?.touched}"
+                     required
+                     minlength="2"
+                     id="fnText" placeholder="Enter cne">
+              <small id="fnHelpCneRequ"
+                     *ngIf="cne?.errors?.required && cne?.touched"
+                     class="form-text custom-invalid-feedback">Field is required</small>
+              <small id="fnHelpCneMin"
+                     *ngIf="cne?.errors?.minlength && cne?.touched"
+                     class="form-text custom-invalid-feedback"> Le champ est obligatoire Le cne requiert au moins 2 caractères.</small>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="lnText"><b>Nom</b></label>
+              <input type="text" ngModel name="nom"
+                     required
+                     #nom="ngModel"
+                     [ngClass]="{'form-control': true,
+              'is-invalid': !nom?.valid && nom?.touched,
+              'is-valid': nom?.valid && nom?.touched}"
+                     id="lnText" placeholder="Enter nom">
+              <small id="fnHelp"
+                     *ngIf="nom?.errors?.required && nom?.touched"
+                     class="form-text custom-invalid-feedback">Field is required</small>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="lnText"><b>Prenom</b></label>
+              <input type="text" ngModel name="prenom"
+                     required
+                     #prenom="ngModel"
+                     [ngClass]="{'form-control': true,
+              'is-invalid': !prenom?.valid && nom?.touched,
+              'is-valid': prenom?.valid && prenom?.touched}"
+                     id="lnTextpreno" placeholder="Enter prenom">
+              <small id="fnHelppreno"
+                     *ngIf="prenom?.errors?.required && prenom?.touched"
+                     class="form-text custom-invalid-feedback">Field is required</small>
+            </div>
+          </div>
+        </div>
+
+<br>
+
+        <div class="row" ngModelGroup="address">
+          <div class="col-12">
+            <label for="" class="form-check-inline"> <b>SEXE:</b></label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" ngModel
+                     #sexe="ngModel"
+                     required
+                     [ngClass] = "{'form-check-input': true,
+              'is-invalid' : !sexe?.valid && sexe?.touched,
+              'is-valid' : sexe?.valid && sexe?.touched}"
+                     name="sexe"   id="inlineRadio1" value="femme">
+              <label class="form-check-label" for="inlineRadio1">Femme</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" ngModel
+                     #sexe="ngModel"
+                     [ngClass] = "{'form-check-input': true,
+              'is-invalid' : !sexe?.valid && sexe?.touched,
+              'is-valid' : sexe?.valid && sexe?.touched}"
+                     required
+                     name="sexe" id="inlineRadio2" value="homme">
+              <label class="form-check-label" for="inlineRadio2">Homme</label>
+            </div>
+            <small *ngIf="sexe?.errors?.required && sexe?.touched"
+                   class="form-check-inline form-text custom-invalid-feedback">Choisissez une option..</small>
+          </div>
+          <br>
+          <br>
+          <br>
+
+          <div class="col-12">
+            <div class="form-group">
+              <label for="addText"><b>Telephone</b></label>
+              <input type="number" class="form-control" ngModel
+                     required
+                     #telephone="ngModel"
+                     [ngClass]="{'form-control' : true,
+              'is-invalid' : !telephone?.valid && telephone?.touched,
+              'is-valid' : telephone?.valid && telephone?.touched}"
+                     name="telephone" id="addText" placeholder="Entrer telephone">
+              <small  *ngIf="telephone?.errors?.required && telephone?.touched"
+                      class="form-text custom-invalid-feedback">Field is required</small>
+            </div>
+          </div>
+          <br>
+
+          <div class="col-12">
+            <div class="form-group">
+              <label for="mail"><b>Mail</b></label>
+              <input type="email" class="form-control" ngModel
+                     required
+                     #mail="ngModel"
+                     [ngClass]="{'form-control' : true,
+              'is-invalid' : !mail?.valid && mail?.touched,
+              'is-valid' : mail?.valid && mail?.touched}"
+                     name="mail" id="mail" placeholder="Entrer mail">
+              <small  *ngIf="mail?.errors?.required && mail?.touched"
+                      class="form-text custom-invalid-feedback">Field is required</small>
+            </div>
+          </div>
+<br>
+          <br>
+
+          <div class="col-12">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="dateNaissance"><b>Date Naissance</b></label>
+                  <input type="text" ngModel
+                         required
+                         #dateNaissance="ngModel"
+                         [ngClass]="{'form-control' : true,
+                  'is-invalid' : !dateNaissance?.valid && dateNaissance?.touched,
+                  'is-valid' : dateNaissance?.valid && dateNaissance?.touched}"
+                         name="dateNaissance" class="form-control" id="dateNaissance" placeholder="Enter dateNaissance">
+                  <small *ngIf="dateNaissance?.errors?.required && dateNaissance?.touched"
+                         class="form-text custom-invalid-feedback">Field is required</small>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="form-group">
+                  <label for="lieuNaissance"><b>Lieu Naissance</b></label>
+                  <input type="text" ngModel
+                         required
+                         #lieuNaissance="ngModel"
+                         [ngClass]="{'form-control' : true,
+                  'is-invalid' : !lieuNaissance?.valid && lieuNaissance?.touched,
+                  'is-valid' : lieuNaissance?.valid && lieuNaissance?.touched}"
+                         name="lieuNaissance" class="form-control" id="lieuNaissance" placeholder="Enter lieuNaissance">
+                  <small *ngIf="lieuNaissance?.errors?.required && lieuNaissance?.touched"
+                         class="form-text custom-invalid-feedback">Field is required</small>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="nationalite"><b>Nationalite</b></label>
+                  <input type="text" ngModel
+                         required
+                         #nationalite="ngModel"
+                         [ngClass]="{'form-control' : true,
+                  'is-invalid' : !nationalite?.valid && nationalite?.touched,
+                  'is-valid' : nationalite?.valid && nationalite?.touched}"
+                         name="nationalite" class="form-control" id="nationalite" placeholder="Enter nationalite">
+                  <small *ngIf="nationalite?.errors?.required && nationalite?.touched"
+                         class="form-text custom-invalid-feedback">Field is required</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="serieBac"><b>serieBac</b></label>
+                <input type="text" ngModel
+                       required
+                       #serieBac="ngModel"
+                       [ngClass]="{'form-control' : true,
+                  'is-invalid' : !serieBac?.valid && serieBac?.touched,
+                  'is-valid' : serieBac?.valid && serieBac?.touched}"
+                       name="serieBac" class="form-control" id="serieBac" placeholder="Enter serieBac">
+                <small *ngIf="serieBac?.errors?.required && serieBac?.touched"
+                       class="form-text custom-invalid-feedback">Field is required</small>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="filiere"><b>filiere</b></label>
+                <input type="text" ngModel
+                       required
+                       #filiere="ngModel"
+                       [ngClass]="{'form-control' : true,
+                  'is-invalid' : !filiere?.valid && filiere?.touched,
+                  'is-valid' : filiere?.valid && filiere?.touched}"
+                       name="filiere" class="form-control" id="filiere" placeholder="Enter filiere">
+                <small *ngIf="filiere?.errors?.required && filiere?.touched"
+                       class="form-text custom-invalid-feedback">Field is required</small>
+              </div>
+            </div>
+          </div>
+        </div>
+<br>
+        <br>
+
+        <div class="row justify-content-center">
+          <div class="col-2" id="button">
+            <button type="button" [disabled]="!myForm.form.valid" class="btn btn-primary" (click)="save()">S'inscrire</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+
+<style>
+  .card {
+    width: 600px;
+    height: 750px;
+    position: absolute;
+    left: 33%;
+    box-sizing: border-box;
+    background: rgba(108, 108, 108, 0.35);
+    padding: 40px;
+    border-radius: 15px;
+
+  }
+  #button{
+    position: center;
+  }
+
+</style>
+
+

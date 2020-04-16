@@ -6,7 +6,8 @@ import { EtudiantComponent } from './etudiant/etudiant.component';
 import { EtudiantListComponent } from './Etudiant/etudiant-list/etudiant-list.component';
 import { EtudiantCreateComponent } from './Etudiant/etudiant-create/etudiant-create.component';
 import { InscriptionComponent } from './inscription/inscription.component';
-import { InscriptionListComponent } from './Inscription/inscription-list/inscription-list.component';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,14 @@ import { InscriptionListComponent } from './Inscription/inscription-list/inscrip
     EtudiantListComponent,
     EtudiantCreateComponent,
     InscriptionComponent,
-    InscriptionListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [InscriptionComponent]
 })
 export class AppModule { }
