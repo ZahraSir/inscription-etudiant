@@ -25,7 +25,7 @@
               'is-valid': cne?.valid && cne?.touched}"
                      required
                      minlength="2"
-                     id="fnText" placeholder="Enter cne">
+                     id="fnText" placeholder="Enter cne" [(ngModel)]="inscription.telephone">
               <small id="fnHelpCneRequ"
                      *ngIf="cne?.errors?.required && cne?.touched"
                      class="form-text custom-invalid-feedback">Field is required</small>
@@ -43,7 +43,7 @@
                      [ngClass]="{'form-control': true,
               'is-invalid': !nom?.valid && nom?.touched,
               'is-valid': nom?.valid && nom?.touched}"
-                     id="lnText" placeholder="Enter nom">
+                     id="lnText" placeholder="Enter nom" [(ngModel)]="inscription.telephone">
               <small id="fnHelp"
                      *ngIf="nom?.errors?.required && nom?.touched"
                      class="form-text custom-invalid-feedback">Field is required</small>
@@ -58,7 +58,7 @@
                      [ngClass]="{'form-control': true,
               'is-invalid': !prenom?.valid && nom?.touched,
               'is-valid': prenom?.valid && prenom?.touched}"
-                     id="lnTextpreno" placeholder="Enter prenom">
+                     id="lnTextpreno" placeholder="Enter prenom" [(ngModel)]="inscription.telephone">
               <small id="fnHelppreno"
                      *ngIf="prenom?.errors?.required && prenom?.touched"
                      class="form-text custom-invalid-feedback">Field is required</small>
@@ -78,7 +78,7 @@
                      [ngClass] = "{'form-check-input': true,
               'is-invalid' : !sexe?.valid && sexe?.touched,
               'is-valid' : sexe?.valid && sexe?.touched}"
-                     name="sexe"   id="inlineRadio1" value="femme">
+                     name="sexe"   id="inlineRadio1" value="femme" [(ngModel)]="inscription.sexe">
               <label class="form-check-label" for="inlineRadio1">Femme</label>
             </div>
             <div class="form-check form-check-inline">
@@ -88,7 +88,7 @@
               'is-invalid' : !sexe?.valid && sexe?.touched,
               'is-valid' : sexe?.valid && sexe?.touched}"
                      required
-                     name="sexe" id="inlineRadio2" value="homme">
+                     name="sexe" id="inlineRadio2" value="homme" [(ngModel)]="inscription.sexe">
               <label class="form-check-label" for="inlineRadio2">Homme</label>
             </div>
             <small *ngIf="sexe?.errors?.required && sexe?.touched"
@@ -107,7 +107,7 @@
                      [ngClass]="{'form-control' : true,
               'is-invalid' : !telephone?.valid && telephone?.touched,
               'is-valid' : telephone?.valid && telephone?.touched}"
-                     name="telephone" id="addText" placeholder="Entrer telephone">
+                     name="telephone" id="addText" placeholder="Entrer telephone" [(ngModel)]="inscription.telephone" >
               <small  *ngIf="telephone?.errors?.required && telephone?.touched"
                       class="form-text custom-invalid-feedback">Field is required</small>
             </div>
@@ -123,7 +123,7 @@
                      [ngClass]="{'form-control' : true,
               'is-invalid' : !mail?.valid && mail?.touched,
               'is-valid' : mail?.valid && mail?.touched}"
-                     name="mail" id="mail" placeholder="Entrer mail">
+                     name="mail" id="mail" placeholder="Entrer mail" [(ngModel)]="inscription.mail">
               <small  *ngIf="mail?.errors?.required && mail?.touched"
                       class="form-text custom-invalid-feedback">Field is required</small>
             </div>
@@ -136,13 +136,13 @@
               <div class="col">
                 <div class="form-group">
                   <label for="dateNaissance"><b>Date Naissance</b></label>
-                  <input type="text" ngModel
+                  <input type="date" ngModel
                          required
                          #dateNaissance="ngModel"
                          [ngClass]="{'form-control' : true,
                   'is-invalid' : !dateNaissance?.valid && dateNaissance?.touched,
                   'is-valid' : dateNaissance?.valid && dateNaissance?.touched}"
-                         name="dateNaissance" class="form-control" id="dateNaissance" placeholder="Enter dateNaissance">
+                         name="dateNaissance" class="form-control" id="dateNaissance" placeholder="Enter dateNaissance" [(ngModel)]="inscription.dateNaissance">
                   <small *ngIf="dateNaissance?.errors?.required && dateNaissance?.touched"
                          class="form-text custom-invalid-feedback">Field is required</small>
                 </div>
@@ -157,7 +157,7 @@
                          [ngClass]="{'form-control' : true,
                   'is-invalid' : !lieuNaissance?.valid && lieuNaissance?.touched,
                   'is-valid' : lieuNaissance?.valid && lieuNaissance?.touched}"
-                         name="lieuNaissance" class="form-control" id="lieuNaissance" placeholder="Enter lieuNaissance">
+                         name="lieuNaissance" class="form-control" id="lieuNaissance" placeholder="Enter lieuNaissance" [(ngModel)]="inscription.lieuNaissance">
                   <small *ngIf="lieuNaissance?.errors?.required && lieuNaissance?.touched"
                          class="form-text custom-invalid-feedback">Field is required</small>
                 </div>
@@ -171,7 +171,7 @@
                          [ngClass]="{'form-control' : true,
                   'is-invalid' : !nationalite?.valid && nationalite?.touched,
                   'is-valid' : nationalite?.valid && nationalite?.touched}"
-                         name="nationalite" class="form-control" id="nationalite" placeholder="Enter nationalite">
+                         name="nationalite" class="form-control" id="nationalite" placeholder="Enter nationalite" [(ngModel)]="inscription.nationalite">
                   <small *ngIf="nationalite?.errors?.required && nationalite?.touched"
                          class="form-text custom-invalid-feedback">Field is required</small>
                 </div>
@@ -191,7 +191,7 @@
                        [ngClass]="{'form-control' : true,
                   'is-invalid' : !serieBac?.valid && serieBac?.touched,
                   'is-valid' : serieBac?.valid && serieBac?.touched}"
-                       name="serieBac" class="form-control" id="serieBac" placeholder="Enter serieBac">
+                       name="serieBac" class="form-control" id="serieBac" placeholder="Enter serieBac" [(ngModel)]="inscription.serieBac">
                 <small *ngIf="serieBac?.errors?.required && serieBac?.touched"
                        class="form-text custom-invalid-feedback">Field is required</small>
               </div>
@@ -205,7 +205,7 @@
                        [ngClass]="{'form-control' : true,
                   'is-invalid' : !filiere?.valid && filiere?.touched,
                   'is-valid' : filiere?.valid && filiere?.touched}"
-                       name="filiere" class="form-control" id="filiere" placeholder="Enter filiere">
+                       name="filiere" class="form-control" id="filiere" placeholder="Enter filiere" [(ngModel)]="inscription.filiere">
                 <small *ngIf="filiere?.errors?.required && filiere?.touched"
                        class="form-text custom-invalid-feedback">Field is required</small>
               </div>
